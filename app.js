@@ -17,8 +17,15 @@ window.addEventListener('load', () => {
       appendData(data);
     })
   }
+  function kelvinToCelcius(temp) {
+    let temperature = temp;
+    let celcius;
+
+    celcius = (temp - 273.1);
+    return parseInt(celcius);
+  }
   function appendData(data) {
-    let temperature = document.createTextNode(data.main.temp);
+    let temperature = document.createTextNode(kelvinToCelcius(data.main.temp));
     let timezone = document.createTextNode(data.name);
     let description = document.createTextNode(data.weather[0].description);
     console.log(data);
@@ -31,8 +38,8 @@ window.addEventListener('load', () => {
      navigator.geolocation.getCurrentPosition(position => {
       long = position.coords.longitude;
       lat = position.coords.latitude;
+      
       fetchWeather(lat,long);
-      console.log(position);
     });
     degreeSection.addEventListener('click', () => {
       fetchWeather(lat,long);

@@ -38,11 +38,12 @@ window.addEventListener('load', () => {
      navigator.geolocation.getCurrentPosition(position => {
       long = position.coords.longitude;
       lat = position.coords.latitude;
-      
+
       fetchWeather(lat,long);
     });
     degreeSection.addEventListener('click', () => {
-      fetchWeather(lat,long);
+      let text = document.createTextNode('Pau no seu cú!')
+      temperatureDegree.appendChild(text);
     })
   }
 });

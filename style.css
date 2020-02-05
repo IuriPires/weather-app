@@ -26,6 +26,9 @@ body {
 .temperature {
   flex-direction: column;
 }
+.weather-icon {
+  font-size: 24px;
+}
 
 .degree-section {
   display: flex;

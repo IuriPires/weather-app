@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
   const URL = 'https://api.darksky.net/forecast/';
 
   function fetchWeather(lat,long) {
-    fetch(`${URL}${API_KEY}/${lat},${long}`)
+    fetch(`${URL}${API_KEY}/${lat},${long}`, request.mode: 'no-cors')
     .then((data) => {
       console.log(data);
     });

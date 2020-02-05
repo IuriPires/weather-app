@@ -41,9 +41,5 @@ window.addEventListener('load', () => {
 
       fetchWeather(lat,long);
     });
-    degreeSection.addEventListener('click', () => {
-      let text = document.createTextNode('Pau no seu cú!')
-      temperatureDegree.appendChild(text);
-    })
   }
 });

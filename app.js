@@ -17,6 +17,13 @@ window.addEventListener('load', () => {
       appendData(data);
     })
   }
+
+  function setIcon(icon, iconId) {
+    const skycons = new Skycons({ 'color': 'white' });
+    skycons.add(document.querySelector('.icon'), Skycons.CLOUDY);
+    skycons.play();
+  }
+
   function kelvinToCelcius(temp) {
     let temperature = temp;
     let celcius;
@@ -25,11 +32,13 @@ window.addEventListener('load', () => {
     return parseInt(celcius);
   }
   function appendData(data) {
-    let temperature = document.createTextNode(kelvinToCelcius(data.main.temp));
-    let timezone = document.createTextNode(data.name);
-    let description = document.createTextNode(data.weather[0].description);
-    console.log(data);
+    const temperature = document.createTextNode(kelvinToCelcius(data.main.temp));
+    const timezone = document.createTextNode(data.name);
+    const description = document.createTextNode(data.weather[0].description);
+    const iconName = data.weather[0].main;
+
     
+    setIcon(iconName.toLowerCase(), 'icon');
     locationTimezone.appendChild(timezone);
     temperatureDegree.appendChild(temperature);
     temperatureDescription.appendChild(description);
